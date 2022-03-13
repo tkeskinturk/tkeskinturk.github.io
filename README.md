@@ -1,4 +1,13 @@
-## Welcome to GitHub Pages
+I am an upcoming PhD student of Sociology at Duke University.
+
+## About Me
+
+The main goal of my research is to understand how social learning occurs in earlier periods of life, why we stick to certain cultural beliefs over the life-course, and how individuals believe what they believe.
+
+## Publications
+
+
+
 
 You can use the [editor on GitHub](https://github.com/tkeskinturk/tkeskinturk.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
