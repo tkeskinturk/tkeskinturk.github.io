@@ -16,4 +16,4 @@ The Organization of Political Belief Networks: A Cross-Country Analysis.\
 [Pre-Print](https://osf.io/preprints/socarxiv/6s9rk/). [Replication Materials](https://github.com/tkeskinturk/polnetworks).
 
 ## Contact
-You can contact me through [e-mail](trgtkeskinturk@gmail.com) or [Twitter](twitter.com/ttkeskinturk)
+You can contact me through [e-mail](trgtkeskinturk@gmail.com) or [Twitter](twitter.com/ttkeskinturk).
