@@ -15,6 +15,5 @@ I am interested in socialization and belief formation, broadly situated in the i
 The Organization of Political Belief Networks: A Cross-Country Analysis.\
 [Pre-Print](https://osf.io/preprints/socarxiv/6s9rk/). [Replication Materials](https://github.com/tkeskinturk/polnetworks).
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Contact
+You can contact me through [e-mail](trgtkeskinturk@gmail.com) or [Twitter](twitter.com/ttkeskinturk)
