@@ -2,7 +2,7 @@ I am an upcoming PhD student of Sociology at Duke University.
 
 ## About Me
 
-The main goal of my research is to understand how social learning occurs in earlier periods of life, why we stick to certain cultural beliefs over the life-course, and how individuals believe what they believe.
+I am interested in socialization and belief formation, broadly situated in the interdisciplinary context of cognitive sociology, cognitive science, and cultural evolution. My research explores how social learning occurs in earlier periods of life, why we stick to certain cultural beliefs (and not to the others), and how individuals believe what they believe.
 
 ## Publications
 
