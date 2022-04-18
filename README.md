@@ -10,9 +10,7 @@ I am interested in socialization and belief formation, broadly situated in the i
 
 2022 - Religious Belief Alignment: The Structure of Cultural Beliefs from Adolescence to Emerging Adulthood, *Poetics* 90: 101591.\
 [Print](https://www.sciencedirect.com/science/article/pii/S0304422X21000814). [Pre-Print](https://osf.io/preprints/socarxiv/ft5zm/). [Replication Materials](https://github.com/tkeskinturk/religious_belief_alignment).
-
-### Under-Review
-The Organization of Political Belief Networks: A Cross-Country Analysis.\
+2022 - Organization of Political Belief Networks: A Cross-Country Analysis. Forthcoming in *Social Science Research*\
 [Pre-Print](https://osf.io/preprints/socarxiv/6s9rk/). [Replication Materials](https://github.com/tkeskinturk/polnetworks).
 
 ## Contact
