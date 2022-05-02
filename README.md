@@ -1,4 +1,4 @@
-I am an upcoming PhD student of Sociology at Duke University.
+I am an incoming PhD student of Sociology at Duke University.
 
 ## About Me
 
