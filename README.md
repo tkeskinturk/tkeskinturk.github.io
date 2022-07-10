@@ -14,7 +14,7 @@ A Cross-Country Analysis
 \
 (2022) *Social Science Research*: 102742.
 \
-[Print](https://www.sciencedirect.com/science/article/abs/pii/S0049089X22000485). [Pre-Print](https://osf.io/preprints/socarxiv/6s9rk/). [Replication Materials](https://github.com/tkeskinturk/polnetworks).
+[Print](https://www.sciencedirect.com/science/article/abs/pii/S0049089X22000485). [Pre-Print](https://osf.io/preprints/socarxiv/6s9rk/). [Replication Materials](https://github.com/tkeskinturk/polnetworks). [Runs with New Data](https://twitter.com/ttkeskinturk/status/1546184840281718784).
 \
 \
 **Religious Belief Alignment**
