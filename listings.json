@@ -2,6 +2,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
+      "/blog/preferences/index.html",
       "/blog/inequality/index.html"
     ]
   }
