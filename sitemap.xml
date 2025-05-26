@@ -2,30 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tkeskinturk.github.io/index.html</loc>
-    <lastmod>2025-04-29T18:53:07.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/resentment/index.html</loc>
-    <lastmod>2025-05-07T15:14:40.800Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/inequality/index.html</loc>
-    <lastmod>2025-03-29T14:32:47.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/compsocsci/index.html</loc>
-    <lastmod>2025-04-29T18:51:06.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/index.html</loc>
-    <lastmod>2025-04-27T23:13:32.000Z</lastmod>
+    <lastmod>2025-05-26T20:02:15.166Z</lastmod>
   </url>
   <url>
     <loc>https://tkeskinturk.github.io/blog/preferences/index.html</loc>
     <lastmod>2025-04-29T18:44:45.000Z</lastmod>
   </url>
   <url>
-    <loc>https://tkeskinturk.github.io/imprints/index.html</loc>
-    <lastmod>2025-04-22T23:10:16.000Z</lastmod>
+    <loc>https://tkeskinturk.github.io/blog/index.html</loc>
+    <lastmod>2025-04-27T23:13:32.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/compsocsci/index.html</loc>
+    <lastmod>2025-04-29T18:51:06.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/inequality/index.html</loc>
+    <lastmod>2025-03-29T14:32:47.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/resentment/index.html</loc>
+    <lastmod>2025-05-07T15:14:40.000Z</lastmod>
   </url>
 </urlset>
