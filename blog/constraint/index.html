@@ -22,27 +22,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -90,49 +70,6 @@ div.csl-indent {
   }
 }</script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -209,207 +146,19 @@ window.Quarto = {
 
 
 <p>The concept of “dynamic constraint”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> has been hanging around political science and sociology quarters like an old mythical creature: it’s always cited, often hoped for, regularly tested, and rarely found. I know at least a dozen incredibly clever people who have gone looking for it in the wild with usually “mixed” or negative findings, or at least, results that are hard to interpret.</p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The notion that when people change their mind about one belief, they also change other related beliefs to stay logically or ideologically consistent.</p></div></div><p>Almost all of us <em>file-draw</em> our trials, since most of us think that even though dynamic constraint works in theory quite well, the empirics are just too hard to pin down: (a) large and durable changes in political preferences are rare, (b) there are numerous political influences which may affect an individual’s propensity to update, and (c) even though experimental interventions can induce effects, they are small, short-lived, and reliant on questionable assumptions on “change.”</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The notion that when people change their mind about one belief, they also change other related beliefs to stay logically or ideologically consistent.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;OK, this is not a verb.</p></div></div><p>Almost all of us <em>file-draw</em><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> our trials, since most of us think that even though dynamic constraint works in theory quite well, the empirics are just too hard to pin down: (a) large and durable changes in political preferences are rare, (b) there are numerous political influences which may affect an individual’s propensity to update, and (c) even though experimental interventions can induce effects, they are small, short-lived, and reliant on questionable assumptions on “change.”</p>
 <p><strong>Well, against this background, naturally, I decided to give it a go myself.</strong></p>
 <p>I wrote up a tidy little theory, preregistered an experiment, ran it with over 2,400 respondents, and found exactly what everyone else seems to find: strong updates on one’s focal belief, and <em>nothing for everything else</em>. I decided not even trying to publish it. So here it is—the article, the results, and the wasted grad student money. As a responsible citizen, of course, I am sharing the data and code <a href="https://github.com/tkeskinturk/dynamic_constraint">here</a>. Do with it what you will. I am hoping that someone out there will prove <em>or</em> kill it one day.</p>
 <p>Below is the full theory as originally written (well, <em>slightly</em> original), for those curious enough to read. The write-up for experiment and findings is sketchy. But—at least—I have pretty figures!</p>
 <hr>
-<section id="a-tidy-little-theory" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="a-tidy-little-theory">A Tidy Little Theory</h2>
-<p>Studies of political belief systems propose that many citizens hold beliefs and preferences that “go together” at a single point in time—what Converse <span class="citation" data-cites="converse1964">(<a href="#ref-converse1964" role="doc-biblioref">1964</a>)</span> calls <em>static constraint</em> <span class="citation" data-cites="boutyline2017 brandt2021 fishman2021">(see <a href="#ref-boutyline2017" role="doc-biblioref">Boutyline and Vaisey 2017</a>; <a href="#ref-brandt2021" role="doc-biblioref">Brandt and Sleegers 2021</a>; <a href="#ref-fishman2021" role="doc-biblioref">Fishman and Davis 2021</a>)</span>. However, it is far less common for people to exhibit <em>dynamic constraint</em>, the tendency for a change in one belief to induce congruent updates in logically or sociologically related beliefs. While there are strong cognitive accounts of why people might seek consistent belief states <span class="citation" data-cites="osgood1955 heider1946 cartwright1956">(<a href="#ref-osgood1955" role="doc-biblioref">Osgood and Tannenbaum 1955</a>; <a href="#ref-heider1946" role="doc-biblioref">Heider 1946</a>; <a href="#ref-cartwright1956" role="doc-biblioref">Cartwright and Harary 1956</a>)</span>, the experimental evidence suggests that dynamic constraint remains weak in both mass and elite populations <span class="citation" data-cites="coppock2022 turner2022">(<a href="#ref-coppock2022" role="doc-biblioref">Coppock and Green 2022</a>; <a href="#ref-turner2022" role="doc-biblioref">Turner-Zwinkels and Brandt 2022</a>)</span>.</p>
-<p>One promising explanation attributes this pattern to “cognitive intractability.” When presented with information, people may update the focal belief that the new information makes salient, but rarely retrieve “distal” considerations unless explicitly prompted to do so <span class="citation" data-cites="sommer2023">(<a href="#ref-sommer2023" role="doc-biblioref">Sommer, Musolino, and Hemmer 2023</a>)</span>. Because a full search of memory is often unfeasible, individuals tend to rely on whatever beliefs are most accessible at any time. Hence, when confronted with new information, people might only allocate scarce cognitive resources to “constrain” their belief networks <span class="citation" data-cites="simon1955">(<a href="#ref-simon1955" role="doc-biblioref">Simon 1955</a>)</span>.</p>
-<p>This view implies that it may indeed be possible to observe dynamic updating <em>if people could observe connections between issues explicitly</em>. Suppose that an actor has a focal belief, <span class="math inline">\rho_i</span>, as well as a peripheral belief, <span class="math inline">\rho_j</span>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> If this actor’s beliefs were fully tractable, they would prefer a cognitively consistent state; hence, there is a penalty <span class="math inline">\lambda &gt; 0</span> from inconsistent belief states. Suppose that there is an action set, <span class="math inline">a \in \{0, 1\}</span>, where 1 denotes a consistency-seeking belief system search and 0 denotes no action. This means that if an actor engages in <span class="math inline">a = 1</span>, the search will move <span class="math inline">\rho_j</span> to <span class="math inline">\tilde\rho_j = \rho_i</span>, eliminating dissonance. That said, belief system search comes with a search cost, <span class="math inline">k</span>. Suppose now that this cost might be lowered with exogeneous cues <span class="math inline">c \in (0,1]</span>, where <span class="math inline">c = 1</span> means no cue from the environment. Therefore, mechanisms like elite framing or associative learning serve as cognitive cost reduction processes. In this setting, the utility model captures a fundamental tension:</p>
-<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Assume that <span class="math inline">\rho_i</span> and <span class="math inline">\rho_j</span> are continuous, bounded between 0 and 1, and similar in direction.</p></div></div><p><span class="math display">
-U(\rho_j, a) = - (1 - a)\lambda(\rho_i - \rho_j)^2 - ack \tag{1}
-</span></p>
-<p>Here, the final decision rule is simple: when <span class="math inline">\lambda(\rho_i - \rho_j)^2 &lt; ck</span>, the actor has no incentive to engage in consistency-seeking belief system search, which characterizes most experimental contexts.</p>
-<p>The model implies that if there is a cue—thus lower <span class="math inline">c</span>—the actor can spend fewer resources to update beliefs. The corresponding generative model for this prediction is rather simple: when presented with information, a person will update their focal belief, but the distal or peripheral belief will be dynamically updated only when there is a cue that <em>connects</em> the focal belief to the peripheral belief. If memory search is indeed costly, cues that tie one issue to another can provide a low cost alternative for achieving consistent or congruent beliefs. In this sense, dynamic updating might occur when the environment actively supplies cues that make the otherwise “latent” link between issue considerations explicit, as this would lower retrieval costs.</p>
-<p>Three hypotheses below summarize the main empirical predictions:</p>
-<ul>
-<li>Hypothesis 1: When an individual encounters credible factual information about a focal issue, they should update their beliefs in the same direction as the evidence.</li>
-<li>Hypothesis 2: Since belief system search is usually costly, such updates should not extend to conceptually related but unmentioned issues in the absence of cues.</li>
-<li>Hypothesis 3: Providing individuals with explicit cues linking the focal issue to a peripheral issue should result in cross-issue updating, generating coordinated belief change.</li>
-</ul>
-<p><strong>That is it! These are the hypotheses I set out to prove.</strong></p>
-</section>
-<section id="testing-the-beautiful-lie" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="testing-the-beautiful-lie">Testing the Beautiful Lie</h2>
-<p>I test these propositions in a pre-registered survey experiment that builds on Coppock and Green’s <span class="citation" data-cites="coppock2022">(<a href="#ref-coppock2022" role="doc-biblioref">2022</a>)</span> information design. I randomly assign respondents (<span class="math inline">N = 2{,}414</span>) to view factual information about either income inequality or social mobility in the United States, with and without an explicit cue indicating that the two issues are conceptually linked.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> While the treatments target “focal” beliefs within their respective domain—aiming to generate strong first-stage effects—the interest lies in whether these effects would produce spillover effects in peripheral domains. For income inequality, I asked people about whether the income inequality in the U.S. has risen, whether there is too much inequality in the U.S., and whether poverty is due to lack of effort. For social mobility, I asked about whether the chance for social mobility in the U.S. is high, being successful in the U.S. and the parents’ influence on one’s socioeconomic status in the adulthood.</p>
-<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Resulting in five-arms.</p></div></div><p>Figure 1 documents the “inequality treatment,” which relies on the same underlying data, but with a simple graph scaling manipulation from Trump and White <span class="citation" data-cites="trump2018">(<a href="#ref-trump2018" role="doc-biblioref">2018</a>)</span>.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><img src="../../assets/assets_blog/constraintA.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Figure 1: Inequality Treatment; Control on the Left; Treatment on the Right</td>
-</tr>
-</tbody>
-</table>
-<p><br>
-</p>
-<p>Figure 2 documents the “social mobility treatment,” which uses Alesina, Stantcheva, and Teso’s <span class="citation" data-cites="alesina2018">(<a href="#ref-alesina2018" role="doc-biblioref">2018</a>)</span> informational animation on social mobility in the U.S.:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><img src="../../assets/assets_blog/constraintB.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Figure 2: Social Mobility Treatment</td>
-</tr>
-</tbody>
-</table>
-<p><br>
-</p>
-<p>Again, the expectation is that each of these treatments will affect people’s focal beliefs on the salient issue (Figure 1 for inequality beliefs and Figure 2 for mobility beliefs).</p>
-<p><strong><em>Cues</em></strong>. In two additional conditions, these treatments are followed by cues that remind people that the focal issue can be connected to the peripheral issue. To do so, I simply assigned people to one of two treatments, but after each treatment, I cued them on relationships between issues.</p>
-<p>After the inequality treatment, respondents in Condition 4 saw:</p>
-<ul>
-<li>Some experts suggest that income inequality may be linked to differences in social mobility, that is, the ability of individuals to move up or down the economic ladder.</li>
-</ul>
-<p>Similarly, after the social mobility treatment, respondents in Condition 5 saw:</p>
-<ul>
-<li>Some experts suggest that limited social mobility may be connected to income inequality over time, too.</li>
-</ul>
-<p>Figure 3 depicts the experiment (and the subsequent survey flow) in its five-arms:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><img src="../../assets/assets_blog/constraintC.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Figure 3: The Summary of the Experimental Setup</td>
-</tr>
-</tbody>
-</table>
-<p><br>
-</p>
-<p>In exploratory analyses, I examine (a) whether changes in beliefs spill over into economic preferences, (b) whether people perceive their beliefs as consistent or inconsistent, and (c) how they engage in explicit political reasoning to explain these self-perceptions.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
-<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Everything is preregistered, as presented in osf.io/u49av.</p></div></div></section>
-<section id="the-findings-from-this-exercise" class="level2">
-<h2 class="anchored" data-anchor-id="the-findings-from-this-exercise">The Findings from this Exercise</h2>
-<p>The analyses below show that the information treatments substantively change beliefs about their target issues (confirming H1), while leaving non-target beliefs unchanged in both the <em>no-cue</em> and <em>cue</em> conditions (confirming H2 and rejecting H3). Let me go over them one by one.</p>
-<p>In Figure 4, we see that the focal beliefs (indexed as blue items) update in the treatment groups compared to the control group. These updates occur both in the no cue (Conditions 2 and 3) and cue (Conditions 4 and 5) conditions, with roughly similar estimates. When it comes to the spillover of these treatments to peripheral issues, however, we see that neither the no cue condition nor the cue condition can actually channel a spillover effect. While the effects are in the expected direction in the cue conditions, these are statistically insignificant and highly imprecise.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><img src="../../assets/assets_blog/constraintD.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Figure 4: The Treatment Effects Across Issues and Conditions</td>
-</tr>
-</tbody>
-</table>
-<p><br>
-</p>
-<p>In exploratory analyses, I looked at the spillover effects from beliefs to preferences. Figure 5 shows these results. On the left, we see the OLS estimates of each preference when they are regressed on a belief statement: <em>the rise in income inequality</em> for the inequality treatment and <em>the chances for social mobility</em> for the social mobility treatment. On the right, you see the same relationship in a simple IV context where I used a 2SLS model with the experimental condition serving as the instrument for the focal belief in each condition. Once again, there is no evidence of dynamic constraint.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><img src="../../assets/assets_blog/constraintE.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Figure 5: The Relationship Between Beliefs and Preferences</td>
-</tr>
-</tbody>
-</table>
-<p><br>
-</p>
-<p>Finally, I showed respondents their answers on <em>the rise in income inequality</em> and <em>the chances for social mobility</em>, and asked them whether they think that their responses to these questions are consistent. As seen in Figure 6, the majority of people reported that their responses are “consistent,” though—LLM classified—open-ended responses of people who state that their responses are somewhere in between or inconsistent often talk about how “complicated” or “complex” these issues are. A lot of them noted several informational sources as well.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><img src="../../assets/assets_blog/constraintF.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Figure 6: Self-Reports on Consistency</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="why-this-exercise-may-matter" class="level2">
-<h2 class="anchored" data-anchor-id="why-this-exercise-may-matter">Why This Exercise <em>May</em> Matter?</h2>
-<p>These findings further delimit the scope of dynamic constraint: merely making an inter-issue connection explicit is insufficient to produce coordinated belief change. More importantly, this (null) finding may be another reason why dynamic constraint may not be the generative process through which political belief systems form in the first place.</p>
-</section>
-<section id="references" class="level1">
+<p><strong>Update in August 2025</strong>.</p>
+<p>After several comments and private talks, I’ve found myself turning this into a “working paper,” so I’m killing all the write-up in this blog post in favor of this <a href="https://osf.io/preprints/socarxiv/yh2fm">pre-print in SocArXiv</a>.</p>
+<p>While all my comments and fancy looks about not even trying to publish this is now mute, I’m happily keeping this blog post for posterity.</p>
 
 
 
 
-</section>
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-alesina2018" class="csl-entry" role="listitem">
-Alesina, Alberto, Stefanie Stantcheva, and Edoardo Teso. 2018. <span>“Intergenerational <span>Mobility</span> and <span>Preferences</span> for <span>Redistribution</span>.”</span> <em>American Economic Review</em> 108 (2): 521–54. <a href="https://doi.org/10.1257/aer.20162015">https://doi.org/10.1257/aer.20162015</a>.
-</div>
-<div id="ref-boutyline2017" class="csl-entry" role="listitem">
-Boutyline, Andrei, and Stephen Vaisey. 2017. <span>“Belief <span>Network</span> <span>Analysis</span>: <span>A</span> <span>Relational</span> <span>Approach</span> to <span>Understanding</span> the <span>Structure</span> of <span>Attitudes</span>.”</span> <em>American Journal of Sociology</em> 122 (5): 1371–1447. <a href="https://doi.org/10.1086/691274">https://doi.org/10.1086/691274</a>.
-</div>
-<div id="ref-brandt2021" class="csl-entry" role="listitem">
-Brandt, Mark J., and Willem W. A. Sleegers. 2021. <span>“Evaluating <span>Belief</span> <span>System</span> <span>Networks</span> as a <span>Theory</span> of <span>Political</span> <span>Belief</span> <span>System</span> <span>Dynamics</span>.”</span> <em>Personality and Social Psychology Review</em> 25 (2): 159–85. <a href="https://doi.org/10.1177/1088868321993751">https://doi.org/10.1177/1088868321993751</a>.
-</div>
-<div id="ref-cartwright1956" class="csl-entry" role="listitem">
-Cartwright, Dorwin, and Frank Harary. 1956. <span>“Structural <span>Balance</span>: <span>A</span> <span>Generalization</span> of <span>Heider</span>’s <span>Theory</span>.”</span> <em>Psychological Review</em> 63 (5): 277–93. <a href="https://doi.org/10.1037/h0046049">https://doi.org/10.1037/h0046049</a>.
-</div>
-<div id="ref-converse1964" class="csl-entry" role="listitem">
-Converse, Philip E. 1964. <span>“The <span>Nature</span> of <span>Belief</span> <span>Systems</span> in <span>Mass</span> <span>Publics</span>.”</span> In <em>Ideology and <span>Discontent</span></em>, edited by David Apter, 206–61. Princeton: Princeton University Press.
-</div>
-<div id="ref-coppock2022" class="csl-entry" role="listitem">
-Coppock, Alexander, and Donald P. Green. 2022. <span>“Do <span>Belief</span> <span>Systems</span> <span>Exhibit</span> <span>Dynamic</span> <span>Constraint</span>?”</span> <em>The Journal of Politics</em> 84 (2): 725–38. <a href="https://doi.org/10.1086/716294">https://doi.org/10.1086/716294</a>.
-</div>
-<div id="ref-fishman2021" class="csl-entry" role="listitem">
-Fishman, Nic, and Nicholas T. Davis. 2021. <span>“Change <span>We</span> <span>Can</span> <span>Believe</span> <span>In</span>: <span>Structural</span> and <span>Content</span> <span>Dynamics</span> Within <span>Belief</span> <span>Networks</span>.”</span> <em>American Journal of Political Science</em> 66 (3): 648–63. <a href="https://doi.org/10.1111/ajps.12626">https://doi.org/10.1111/ajps.12626</a>.
-</div>
-<div id="ref-heider1946" class="csl-entry" role="listitem">
-Heider, Fritz. 1946. <span>“Attitudes and <span>Cognitive</span> <span>Organization</span>.”</span> <em>The Journal of Psychology</em> 21 (1): 107–12. <a href="https://doi.org/10.1080/00223980.1946.9917275">https://doi.org/10.1080/00223980.1946.9917275</a>.
-</div>
-<div id="ref-osgood1955" class="csl-entry" role="listitem">
-Osgood, Charles E., and Percy H. Tannenbaum. 1955. <span>“The <span>Principle</span> of <span>Congruity</span> in the <span>Prediction</span> of <span>Attitude</span> <span>Change</span>.”</span> <em>Psychological Review</em> 62 (1): 42–55. <a href="https://doi.org/10.1037/h0048153">https://doi.org/10.1037/h0048153</a>.
-</div>
-<div id="ref-simon1955" class="csl-entry" role="listitem">
-Simon, Herbert A. 1955. <span>“A <span>Behavioral</span> <span>Model</span> of <span>Rational</span> <span>Choice</span>.”</span> <em>The Quarterly Journal of Economics</em> 69 (1): 99–118. <a href="https://doi.org/10.2307/1884852">https://doi.org/10.2307/1884852</a>.
-</div>
-<div id="ref-sommer2023" class="csl-entry" role="listitem">
-Sommer, Joseph, Julien Musolino, and Pernille Hemmer. 2023. <span>“A <span>Hobgoblin</span> of <span>Large</span> <span>Minds</span>: <span>Troubles</span> with <span>Consistency</span> in <span>Belief</span>.”</span> <em>WIREs Cognitive Science</em> 14 (4): e1639. <a href="https://doi.org/10.1002/wcs.1639">https://doi.org/10.1002/wcs.1639</a>.
-</div>
-<div id="ref-trump2018" class="csl-entry" role="listitem">
-Trump, Kris-Stella, and Ariel White. 2018. <span>“Does <span>Inequality</span> <span>Beget</span> <span>Inequality</span>? <span>Experimental</span> <span>Tests</span> of the <span>Prediction</span> That <span>Inequality</span> <span>Increases</span> <span>System</span> <span>Justification</span> <span>Motivation</span>.”</span> <em>Journal of Experimental Political Science</em> 5 (3): 206–16. <a href="https://doi.org/10.1017/XPS.2018.2">https://doi.org/10.1017/XPS.2018.2</a>.
-</div>
-<div id="ref-turner2022" class="csl-entry" role="listitem">
-Turner-Zwinkels, Felicity M., and Mark J. Brandt. 2022. <span>“Belief <span>System</span> <span>Networks</span> <span>Can</span> <span>Be</span> <span>Used</span> to <span>Predict</span> <span>Where</span> to <span>Expect</span> <span>Dynamic</span> <span>Constraint</span>.”</span> <em>Journal of Experimental Social Psychology</em> 100: 104279. <a href="https://doi.org/10.1016/J.JESP.2021.104279">https://doi.org/10.1016/J.JESP.2021.104279</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
