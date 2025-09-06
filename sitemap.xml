@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tkeskinturk.github.io/index.html</loc>
-    <lastmod>2025-08-15T22:45:43.000Z</lastmod>
+    <loc>https://tkeskinturk.github.io/publications/index.html</loc>
+    <lastmod>2025-09-06T00:15:18.043Z</lastmod>
   </url>
   <url>
-    <loc>https://tkeskinturk.github.io/blog/preferences/index.html</loc>
-    <lastmod>2025-08-15T22:12:39.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/leftright/index.html</loc>
-    <lastmod>2025-09-04T19:23:27.762Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/index.html</loc>
-    <lastmod>2025-04-27T23:13:32.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/constraint/index.html</loc>
-    <lastmod>2025-08-15T22:30:25.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/habitus/index.html</loc>
-    <lastmod>2025-08-15T22:44:46.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/inequality/index.html</loc>
-    <lastmod>2025-03-29T14:32:47.000Z</lastmod>
+    <loc>https://tkeskinturk.github.io/blog/resentment/index.html</loc>
+    <lastmod>2025-08-15T22:16:12.000Z</lastmod>
   </url>
   <url>
     <loc>https://tkeskinturk.github.io/blog/orthodoxy/index.html</loc>
     <lastmod>2025-08-15T22:25:38.000Z</lastmod>
   </url>
   <url>
-    <loc>https://tkeskinturk.github.io/blog/resentment/index.html</loc>
-    <lastmod>2025-08-15T22:16:12.000Z</lastmod>
+    <loc>https://tkeskinturk.github.io/blog/inequality/index.html</loc>
+    <lastmod>2025-03-29T14:32:47.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/habitus/index.html</loc>
+    <lastmod>2025-08-15T22:44:46.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/constraint/index.html</loc>
+    <lastmod>2025-08-15T22:30:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/index.html</loc>
+    <lastmod>2025-04-27T23:13:32.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/leftright/index.html</loc>
+    <lastmod>2025-09-04T19:23:27.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/preferences/index.html</loc>
+    <lastmod>2025-08-15T22:12:39.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/index.html</loc>
+    <lastmod>2025-09-05T23:51:39.200Z</lastmod>
   </url>
 </urlset>
