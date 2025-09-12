@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tkeskinturk.github.io/publications/index.html</loc>
-    <lastmod>2025-09-06T14:42:35.240Z</lastmod>
+    <lastmod>2025-09-06T14:42:35.000Z</lastmod>
   </url>
   <url>
     <loc>https://tkeskinturk.github.io/blog/resentment/index.html</loc>
@@ -19,6 +19,10 @@
   <url>
     <loc>https://tkeskinturk.github.io/blog/habitus/index.html</loc>
     <lastmod>2025-08-15T22:44:46.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/attactors/index.html</loc>
+    <lastmod>2025-09-12T00:15:09.461Z</lastmod>
   </url>
   <url>
     <loc>https://tkeskinturk.github.io/blog/constraint/index.html</loc>
@@ -38,6 +42,6 @@
   </url>
   <url>
     <loc>https://tkeskinturk.github.io/index.html</loc>
-    <lastmod>2025-09-06T13:45:57.049Z</lastmod>
+    <lastmod>2025-09-06T13:45:57.000Z</lastmod>
   </url>
 </urlset>
