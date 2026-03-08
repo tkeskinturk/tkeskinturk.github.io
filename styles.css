@@ -1,8 +1,22 @@
 
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+body {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+}
+
+.navbar, .navbar-brand {
+     font-family: 'EB Garamond', serif;
+}
+
+.listing-date {
+  font-family: 'EB Garamond', serif;
+}
+
 a {
   text-decoration: none;
 }
-
 a:hover,
 a:focus {
   text-decoration: none;

@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Turgut Keskintürk">
 <meta name="dcterms.date" content="2025-05-07">
 
 <title>Racial Resentment and Trump Voting from 2016 to 2024 – Turgut Keskintürk</title>
@@ -47,6 +46,7 @@ div.csl-indent {
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<link href="../../assets/favicon.ico" rel="icon">
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -76,6 +76,18 @@ div.csl-indent {
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Racial Resentment and Trump Voting from 2016 to 2024 – Turgut Keskintürk">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://tkeskinturk.github.io/assets/assets_blog/resentmentA.png">
+<meta property="og:site_name" content="Turgut Keskintürk">
+<meta property="og:image:height" content="3000">
+<meta property="og:image:width" content="4000">
+<meta name="twitter:title" content="Racial Resentment and Trump Voting from 2016 to 2024 – Turgut Keskintürk">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://tkeskinturk.github.io/assets/assets_blog/resentmentA.png">
+<meta name="twitter:image-height" content="3000">
+<meta name="twitter:image-width" content="4000">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -127,12 +139,6 @@ div.csl-indent {
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Turgut Keskintürk </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -149,17 +155,18 @@ div.csl-indent {
 </header>
 
 
-<p>One popular theory of polarization in the U.S. states that “racial resentment” is an important attitudinal mechanism that generates differential voting. A popular measure of this construct comes from Kinder and Sanders <span class="citation" data-cites="kinder1996">(<a href="#ref-kinder1996" role="doc-biblioref">1996</a>)</span>, who defines it as</p>
+<p>One popular theory of polarization in the U.S. states that “racial resentment” is an important attitudinal mechanism that generates differential voting. A popular measure of this construct is formulated in Kinder and Sanders <span class="citation" data-cites="kinder1996">(<a href="#ref-kinder1996" role="doc-biblioref">1996</a>)</span>, who defines it as</p>
 <blockquote class="blockquote">
 <p>the conjunction of whites’ feelings towards blacks and their support for American values, especially secularized versions of the Protestant ethic.</p>
 </blockquote>
-<p>This measure has a highly contested history, with critiques—I think plausibly—suggesting that the underlying survey construct measures a mix of things, including overt racism, conservative values, and free market individualism <span class="citation" data-cites="feldman2005">(<a href="#ref-feldman2005" role="doc-biblioref">Feldman and Huddy 2005</a>)</span>. In that sense, it is not really clear whether this measure captures racist attitudes <em>or</em> picks up conservatism more broadly.</p>
-<p>Let’s bracket this issue for now (why not?), because the American National Election Studies just published their <a href="https://electionstudies.org/data-center/2024-time-series-study/">2024 data</a> which allows us to append its panel component to previous waves in 2016 and 2020. This gives us an 8-year overview of the tumultuous “Donald Trump Era,” and we can follow the same set of people from Trump’s first nomination in 2016 until his final victory in 2024. With usual caveats of panel attrition and stable composition, we can look at the relationship between racial resentment and Trump vote in each wave, as well as testing whether increasing levels of racial resentment predict higher vote for Trump, controlling for all time invariant characteristics.</p>
+<p>This measure has a highly contested history, with critiques—plausibly—suggesting that the underlying survey construct measures a mix of things, including overt racism, conservative values, and free market individualism <span class="citation" data-cites="feldman2005">(<a href="#ref-feldman2005" role="doc-biblioref">Feldman and Huddy 2005</a>)</span>. In that sense, it is not really clear whether this measure captures racist attitudes <em>or</em> picks up conservatism more broadly.</p>
+<p>Let’s bracket this issue for now (why not?), because the American National Election Studies just published their <a href="https://electionstudies.org/data-center/2024-time-series-study/">2024 data</a> which allows me to append its panel component to previous waves in 2016 and 2020.</p>
+<p>This gives me an 8-year overview of the tumultuous “Donald Trump Era,” and we can follow the same set of people from Trump’s first victory in 2016 until his final victory in 2024. With usual caveats of panel attrition and stable composition, we can look at the relationship between racial resentment and Trump vote in each wave, as well as testing whether increasing levels of racial resentment predict higher vote for Trump, controlling for all time invariant characteristics.</p>
 <p>The data and code to reproduce everything below are stored <a href="https://github.com/tkeskinturk/resentment">here</a>. I look at non-Hispanic Whites in the ANES, which includes 1,530 individuals observed across 3 waves.</p>
 <section id="the-cross-sectional-associations" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="the-cross-sectional-associations">The Cross-Sectional Associations</h2>
 <p>Let’s first look at the relationship between racial resentment and Trump vote.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The “Trump vote” takes 1 if a person voted for Trump and 0 otherwise. When non-voters are dropped, the same substantive results hold. Since I can only use the preliminary ANES release at the time of writing this post, the estimates are not weighted.</p></div></div><p>Figure 1 below shows a striking predictive power of racial resentment and Trump vote. It seems that this relationship slightly tightened from 2016 to 2024, though this change is marginal.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The “Trump vote” takes 1 if a person voted for Trump and 0 otherwise.</p></div></div><p>Figure 1 below shows a striking predictive power of racial resentment and Trump vote. It seems that this relation slightly tightened from 2016 to 2024, though this change is marginal.</p>
 <p>To give you a sense of the magnitude, the racial resentment scale explains 37% of the variation in 2016, and 49% and 46% of it in 2020 and 2024, respectively.</p>
 <table class="caption-top table">
 <colgroup>
@@ -182,7 +189,7 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="the-panel-context">The Panel Context</h2>
 <p>We can now ask the following question: <em>do changes in racial resentment predict changes in Trump vote, adjusting for time-invariant individual characteristics and time trends?</em></p>
 <p>This comes with some caveats, particularly on the interpretation side <span class="citation" data-cites="mummolo2018">(<a href="#ref-mummolo2018" role="doc-biblioref">Mummolo and Peterson 2018</a>)</span>.</p>
-<p>Figure 2 shows that, after individual “dispositions” (i.e., mean responses across three waves) are partialled out, the variation shrinks considerably (~60%), and there are not much big jumps going on <em>within</em> individuals. That’s to be expected. But we should keep this in the back of our mind so that, when we evaluate the “effects,” we can think about them in the context of plausible counterfactuals, meaning that we emphasize that these effects rely on rather small deviations over time.</p>
+<p>Figure 2 shows that, after individual “dispositions” (i.e., mean responses across three waves) are partialled out, the variation shrinks considerably (~60%), and there are no big jumps going on <em>within</em> individuals. That’s to be expected. But we should keep this in the back of our mind so that, when we evaluate the “effects,” we can think about them in the context of plausible counterfactuals.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 100%">
@@ -198,7 +205,7 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<p>Figure 3 gives you the final product of this exercise: two TWFE estimates, the former estimated on all sample (including non-voters) while the latter estimated on the voter subset.</p>
+<p>Figure 3 gives you the final product of this exercise: two TWFE estimates, the former estimated on the complete sample (including non-voters) while the latter estimated on the voter subset.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 100%">
@@ -215,7 +222,7 @@ div.csl-indent {
 </tbody>
 </table>
 <p>These are strong effect sizes!<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Remember the change distribution, though!</p></div></div><p>A lot has to be said (and being said) about what racial resentment susbtantively means, or what it hides. But we should admit that this is sure as hell predictive.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Remember the change distribution, though!</p></div></div><p>A lot has to be said (and being said) about what racial resentment substantively means, or what it hides. But we should admit that this is sure as hell predictive.</p>
 </section>
 <section id="references" class="level1">
 
