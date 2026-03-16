@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-03-16">
+
+<title>Visualizing the Dynamics of Opinion Change – Turgut Keskintürk</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<link href="../../assets/favicon.ico" rel="icon">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d64559d910ec87c4ee681e1e2f97436f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Visualizing the Dynamics of Opinion Change – Turgut Keskintürk">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://tkeskinturk.github.io/blog/publicopin/index_files/figure-html/unnamed-chunk-2-1.png">
+<meta property="og:site_name" content="Turgut Keskintürk">
+<meta property="og:image:height" content="5000">
+<meta property="og:image:width" content="7000">
+<meta name="twitter:title" content="Visualizing the Dynamics of Opinion Change – Turgut Keskintürk">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://tkeskinturk.github.io/blog/publicopin/index_files/figure-html/unnamed-chunk-2-1.png">
+<meta name="twitter:image-height" content="5000">
+<meta name="twitter:image-width" content="7000">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Turgut Keskintürk</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Visualizing the Dynamics of Opinion Change</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">16 March 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>We often present public opinion data as an <em>average trend</em>, typically using repeated estimates of a survey construct over time. This strategy is fine for overall description, but it obscures the fact that aggregate changes in public opinion can result from (1) people changing their minds, (2) the composition of the larger population changing, and (3) 1 and 2 happening simultaneously in ways that intensify a specific trend. Thus, a simple mean is generally silent on these distinctions <span class="citation" data-cites="keskinturk2025 vaisey2016">(<a href="#ref-keskinturk2025" role="doc-biblioref">Keskintürk, Bello, and Vaisey 2025</a>; <a href="#ref-vaisey2016" role="doc-biblioref">Vaisey and Lizardo 2016</a>)</span>.</p>
+<p>There is, however, a straightforward way to pull these apart. <span class="citation" data-cites="beheim2012">Beheim and Baldini (<a href="#ref-beheim2012" role="doc-biblioref">2012</a>)</span> and <span class="citation" data-cites="sobchuk2025">Sobchuk and Beheim (<a href="#ref-sobchuk2025" role="doc-biblioref">2025</a>)</span> provide a very intuitive strategy to decompose any aggregate opinion change into a <strong>composition effect</strong> (changing group shares), a <strong>within-group effect</strong> (groups actually changing), and an <strong>interaction</strong> between the two. While their approach is applied to a census of individuals and not really tailored to public opinion data, the underlying logic is general enough that we might think about it in the context of opinion change.</p>
+<p>I wrote a very simple R package—<a href="https://tkeskinturk.github.io/opin"><code>opin</code></a> to implement this. You can install it from GitHub:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("devtools")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"tkeskinturk/opin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The visualization strategy follows the “decomposition plot” from <span class="citation" data-cites="beheim2012">Beheim and Baldini (<a href="#ref-beheim2012" role="doc-biblioref">2012</a>)</span>: rather than placing decomposed effects on an abstract axis, it anchors them on the empirical trajectory of the outcome, so that we can immediately see <em>what</em> is driving the trend at each point in time.</p>
+<section id="a-simple-illustration" class="level2">
+<h2 class="anchored" data-anchor-id="a-simple-illustration">A Simple Illustration</h2>
+<p>Let me illustrate why I think this strategy provides a better representation of public opinion change.</p>
+<p>I will look into the <code>racmar</code> variable from the General Social Survey, which asks whether respondents favor laws against interracial marriage between 1972 and 2002.</p>
+<p>We can use Kieran Healy’s fantastic package, <a href="https://kjhealy.github.io/gssr/"><code>gssr</code></a>, for this task.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install `gssr` if necessary</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   "gssr",</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   repos = c(</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     "https://kjhealy.r-universe.dev",</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#     "https://cloud.r-project.org"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   )</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gssr)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="do">## load GSS data</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"gss_all"</span>, <span class="at">package =</span> <span class="st">"gssr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s see how the support for such laws changed over time:</p>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## wrangle</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> gss_all <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">period =</span> year, cohort, racmar, <span class="at">wt =</span> wtssps) <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="do">## 1 = favor law against racial intermarriage</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">racmar =</span> <span class="fu">if_else</span>(racmar <span class="sc">==</span> <span class="dv">2</span>, <span class="dv">0</span>L, <span class="dv">1</span>L)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="do">## look at trends</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">ymean =</span> <span class="fu">weighted.mean</span>(</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> racmar,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">w =</span> wt <span class="do">## my apologies to the GSS board</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> <span class="st">"period"</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> period,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> ymean</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"% Support"</span>) <span class="sc">+</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.4</span>),</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">from =</span> <span class="fl">0.1</span>, <span class="at">to =</span> <span class="fl">0.4</span>, <span class="at">by =</span> <span class="fl">0.1</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>()</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">from =</span> <span class="dv">1972</span>, <span class="at">to =</span> <span class="dv">2002</span>, <span class="at">by =</span> <span class="dv">10</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This is a striking decline, but this average trend does not tell us whether the decline comes from people changing their minds or from the population itself changing over time.</p>
+<p>Here is how <code>opin</code> handles this issue. Let’s load it first:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install `opin` if necessary</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("devtools")</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github("tkeskinturk/opin")</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(opin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, we want to know whether the following three mechanisms drive the aggregate change:</p>
+<ul>
+<li>the mix of cohorts among the population may be changing,</li>
+<li>the groups themselves may be changing their opinions, or</li>
+<li>both may be happening simultaneously in ways that intensify a specific trend.</li>
+</ul>
+<p>To evaluate this, I first calculate a cohort and period level support for laws against interracial marriage:</p>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="do">## choosing 5-year bands for period and cohort values</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">period =</span> <span class="fu">floor</span>(period <span class="sc">/</span> <span class="dv">5</span>) <span class="sc">*</span> <span class="dv">5</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">cohort =</span> <span class="fu">floor</span>(cohort <span class="sc">/</span> <span class="dv">5</span>) <span class="sc">*</span> <span class="dv">5</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">weighted.mean</span>(racmar, wt),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> <span class="fu">c</span>(period, cohort)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">share =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n), <span class="at">.by =</span> period) <span class="sc">|&gt;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(period, cohort)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 110 × 5
+   period cohort     y     n   share
+    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
+ 1   1970   1880 1         5 0.00129
+ 2   1970   1885 0.613    22 0.00569
+ 3   1970   1890 0.757    58 0.0150 
+ 4   1970   1895 0.667   133 0.0344 
+ 5   1970   1900 0.689   184 0.0476 
+ 6   1970   1905 0.482   248 0.0641 
+ 7   1970   1910 0.481   264 0.0683 
+ 8   1970   1915 0.426   308 0.0796 
+ 9   1970   1920 0.440   356 0.0921 
+10   1970   1925 0.363   322 0.0833 
+# ℹ 100 more rows</code></pre>
+</div>
+</div>
+<p>Here, <code>y</code> is average support, <code>n</code> is the number of individuals in the GSS from a particular cohort <span class="math inline">c</span> and period <span class="math inline">p</span>, and <code>share</code> is the share of that cohort in the larger population.</p>
+<p>We can then feed this data into <code>decomp</code> from the <code>opin</code> package:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## apply</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">decomp</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data  =</span> s,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">tname =</span> <span class="st">"period"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">gname =</span> <span class="st">"cohort"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">yname =</span> <span class="st">"y"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">sname =</span> <span class="st">"share"</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="do">## print</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>res <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 6
+Columns: 8
+$ prev_period &lt;dbl&gt; 1970, 1975, 1980, 1985, 1990, 1995
+$ curr_period &lt;dbl&gt; 1975, 1980, 1985, 1990, 1995, 2000
+$ prev_ybar   &lt;dbl&gt; 0.3671661, 0.3221970, 0.2748205, 0.2333722, 0.1643334, 0.1…
+$ curr_ybar   &lt;dbl&gt; 0.3221970, 0.2748205, 0.2333722, 0.1643334, 0.1163826, 0.1…
+$ delta_ybar  &lt;dbl&gt; -0.044969010, -0.047376568, -0.041448252, -0.069038812, -0…
+$ C           &lt;dbl&gt; -0.018299133, -0.045293658, -0.025283959, -0.024954150, -0…
+$ W           &lt;dbl&gt; -0.024447160, -0.004822172, -0.019482381, -0.042550162, -0…
+$ R           &lt;dbl&gt; -0.0022227176, 0.0027392624, 0.0033180876, -0.0015344991, …</code></pre>
+</div>
+</div>
+<p>What we end up with are three values:</p>
+<ul>
+<li><strong>C</strong>: composition effect (cohort entry, cohort exit, and cohort share changes),</li>
+<li><strong>W</strong>: within-cohort attitude change (average change for a cohort compared to previous period),</li>
+<li><strong>R</strong>: interaction of <strong>C</strong> and <strong>W</strong>.</li>
+</ul>
+<p>And we can visualize these shares as follows:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decompPlot</span>(res) <span class="sc">+</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"% Favoring Laws Against Interracial Marriage"</span>) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.4</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">from =</span> <span class="fl">0.1</span>, <span class="at">to =</span> <span class="fl">0.4</span>, <span class="at">by =</span> <span class="fl">0.1</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>()</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The bars show how much of each period’s change comes from <em>composition</em> (cohort replacement), <em>within-group attitude change</em>, and their <em>interaction</em>. The line traces the aggregate approval rate.</p>
+<p>This is, I think, a much richer picture than the previous trend line alone. We see that both composition and within-cohort change contribute to the decline, but their relative importance changes over time. The interaction term is negligible throughout, meaning that these two processes are largely independent of each other.</p>
+<p>For those interested, I provide a simple algebraic derivation of the decomposition below.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Algebraic Derivation (Open at Your Own Peril)">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Algebraic Derivation (Open at Your Own Peril)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<section id="a-simple-algebraic-derivation" class="level2 callout-body-container callout-body">
+<h2 class="anchored" data-anchor-id="a-simple-algebraic-derivation">A Simple Algebraic Derivation</h2>
+<section id="basic-notation" class="level3">
+<h3 class="anchored" data-anchor-id="basic-notation">Basic Notation</h3>
+<p>Assume that there are <span class="math inline">G</span> groups active in the current time period in a population.</p>
+<p>We will observe each group <span class="math inline">g \in G</span> over discrete census times <span class="math inline">t \in \{0, 1, ...\}</span>, and we will record the number of individuals in group <span class="math inline">g</span> at time <span class="math inline">t</span> without error as <span class="math inline">N_{g, t}</span>.</p>
+<p>Note also that the total population size at time <span class="math inline">t</span> is thus <span class="math inline">N_t = \sum_{g} N_{g, t}</span>.</p>
+<p>With these components, we can calculate the population share of group <span class="math inline">g</span> at time <span class="math inline">t</span> simply as <span class="math inline">s_{g, t} = \frac{N_{g, t}}{N_t}</span>, with <span class="math inline">\sum_{g} s_{g, t} = 1</span>.</p>
+<p>In this setup, the overall population mean of our focal variable <span class="math inline">y</span> at time <span class="math inline">t</span> is</p>
+<p><span class="math display">
+\bar{y}_t = \sum_{g \in G} s_{g, t} \bar{y}_{g, t}
+</span></p>
+<p>where <span class="math inline">\bar{y}_{g, t}</span> is the mean of the focal variable within group <span class="math inline">g</span> at time <span class="math inline">t</span>. Once again, this is measured without error.</p>
+</section>
+<section id="group-population-dynamics" class="level3">
+<h3 class="anchored" data-anchor-id="group-population-dynamics">Group Population Dynamics</h3>
+<p>Between time periods, the set of active groups will obviously change. Assume that we are currently at <span class="math inline">t - 1</span>. In the subsequent time period <span class="math inline">t</span>, there are equivalently <span class="math inline">G'</span> groups active, with</p>
+<p><span class="math display">
+G' = G + I - E
+</span></p>
+<p>where <span class="math inline">I</span> groups begin contributing to the population at time <span class="math inline">t</span> (e.g., new cohorts reaching survey age), <span class="math inline">E</span> groups stop contributing after <span class="math inline">t - 1</span> (e.g., cohorts dying out), and <span class="math inline">G - E</span> groups persisting.</p>
+</section>
+<section id="decomposition-terms" class="level3">
+<h3 class="anchored" data-anchor-id="decomposition-terms">Decomposition Terms</h3>
+<p>For a single step from time <span class="math inline">t - 1</span> to time <span class="math inline">t</span>, we decompose <span class="math inline">\Delta \bar{y}_t = \bar{y}_t - \bar{y}_{t - 1}</span> into three effects.</p>
+<p><strong>Group-Level Entry/Exit Effects (<span class="math inline">C_t</span>)</strong>. Change in the overall mean induced by groups gaining or losing population shares, <em>evaluated at appropriate baseline group means</em>.</p>
+<p><span class="math display">
+C_t =
+  \sum_{g \in G \cap G'} (s_{g, t} - s_{g, t - 1}) \bar{y}_{g, t - 1} +
+  \sum_{g \in I} s_{g, t} \bar{y}_{g, t} -
+  \sum_{g \in E} s_{g, t - 1} \bar{y}_{g, t - 1}
+</span></p>
+<p>where <span class="math inline">I</span> is the set of groups entering at time <span class="math inline">t</span>, <span class="math inline">E</span> is the set of groups exiting after time <span class="math inline">t - 1</span>, and <span class="math inline">G \cap G'</span> is groups present at both periods. This term simply represents aggregate mean change that comes only from the changing weights of groups.</p>
+<p><strong>Within-Group Change Effect (<span class="math inline">W_t</span>)</strong>. Change in the population mean driven by groups changing their mean outcomes, weighted by baseline population shares:</p>
+<p><span class="math display">
+W_t = \sum_{g \in G \cap G' } s_{g, t - 1} (\bar{y}_{g, t} - \bar{y}_{g, t - 1})
+</span></p>
+<p>This term embodies all period shocks and life-cycle (aging) dynamics.</p>
+<p><strong>Interaction Effect (<span class="math inline">R_t</span>)</strong>: The weighted covariance between <span class="math inline">\Delta s_g</span> and <span class="math inline">\Delta \bar{y}_g</span>.</p>
+<p><span class="math display">
+R_t = \sum_{g \in G \cap G' } (s_{g, t} - s_{g, t - 1}) (\bar{y}_{g, t} - \bar{y}_{g, t - 1})
+</span></p>
+<p>Substantively, this term captures whether turnover across groups and opinion dynamics within groups are working in the same or in opposite directions.</p>
+<p>When <span class="math inline">R_t &gt; 0</span>, groups whose population share is rising are simultaneously the groups whose opinions are shifting in the same direction as the overall trend. When <span class="math inline">R_t &lt; 0</span>, groups that are gaining share are moving against the trend. When <span class="math inline">R_t \approx 0</span>, changes in group shares are uncorrelated with within-group change.</p>
+<p>The accounting of the group-level change is thus:</p>
+<p><span class="math display">
+\Delta \bar{y}_t = C_t + W_t + R_t
+</span></p>
+</section>
+<section id="identifying-assumptions" class="level3">
+<h3 class="anchored" data-anchor-id="identifying-assumptions">Identifying Assumptions</h3>
+<p>There are several assumptions required for group-level decomposition to work:</p>
+<ul>
+<li><strong>Assumption 1</strong>: Within each group <span class="math inline">g</span>, entry and exit processes are independent of individual <span class="math inline">y</span> values. Specifically:
+<ul>
+<li>No differential migration by <span class="math inline">y</span> level within groups,</li>
+<li>No differential mortality by <span class="math inline">y</span> level within groups,</li>
+<li>No differential survey participation by <span class="math inline">y</span> level within groups.</li>
+</ul></li>
+<li><strong>Assumption 2</strong>: All population shares <span class="math inline">s_{g,t}</span> and group means <span class="math inline">\bar{y}_{g,t}</span> are measured without error to ensure the decomposition holds exactly. This can be relaxed depending on the application.</li>
+<li><strong>Assumption 3</strong>: Boundaries between groups <span class="math inline">g</span> are stable and exogeneous to the outcome.</li>
+<li><strong>Assumption 4</strong>: The decomposition is additive and separable, such that mean change in group <span class="math inline">g</span> cannot depend on the changing size of another group <span class="math inline">g'</span>.</li>
+</ul>
+</section>
+<section id="derivation-of-decomposition" class="level3">
+<h3 class="anchored" data-anchor-id="derivation-of-decomposition">Derivation of Decomposition</h3>
+<ol type="1">
+<li><p>Start from the definition of population mean change: <span class="math display">
+\Delta \bar{y}_t = \bar{y}_t - \bar{y}_{t - 1} \ \tag{1}
+</span></p></li>
+<li><p>Substitute the population means using group shares <span class="math inline">s</span> and group means <span class="math inline">\bar{y}</span>: <span class="math display">
+\Delta \bar{y}_t = \sum_{g \in G \cup G'} s_{g, t} \bar{y}_{g, t} - s_{g, t - 1} \bar{y}_{g, t - 1} \ \tag{2}
+</span></p></li>
+<li><p>Separate the summation by group type (persisting, entrance, and exiting):</p></li>
+</ol>
+<p><span class="math display">
+\Delta \bar{y}_t =
+  \sum_{g \in G \cap G'} s_{g, t} \bar{y}_{g, t} - s_{g, t - 1} \bar{y}_{g, t - 1}
+  +
+  \sum_{g \in I} s_{g, t} \bar{y}_{g, t}
+  -
+  \sum_{g \in E} s_{g, t - 1} \bar{y}_{g, t - 1}
+  \ \tag{3}
+</span></p>
+<ol start="4" type="1">
+<li>For persisting groups, add and subtract <span class="math inline">s_{g, t} \bar{y}_{g, t - 1}</span> for every <span class="math inline">g</span>:</li>
+</ol>
+<p><span class="math display">
+\begin{aligned}
+    \Delta \bar{y}_t =
+    &amp; \sum_{g \in G \cap G'} s_{g, t} \bar{y}_{g, t} - s_{g, t - 1} \bar{y}_{g, t - 1} + s_{g, t} \bar{y}_{g, t - 1} - s_{g, t} \bar{y}_{g, t - 1} \\
+    &amp; + \sum_{g \in I} s_{g, t} \bar{y}_{g, t} - \sum_{g \in E} s_{g, t - 1} \bar{y}_{g, t - 1}
+\end{aligned} \ \tag{4}
+</span></p>
+<ol start="5" type="1">
+<li>Regroup terms to separate entrance/exit/share effects and within-group effects:</li>
+</ol>
+<p><span class="math display">
+\begin{aligned}
+  \Delta \bar{y}_t =
+  &amp; \sum_{g \in G \cap G'}
+  (s_{g, t} - s_{g, t - 1}) \bar{y}_{g, t - 1} + s_{g, t} (\bar{y}_{g, t} - \bar{y}_{g, t - 1}) \\
+  &amp; + \sum_{g \in I} s_{g, t} \bar{y}_{g, t} - \sum_{g \in E} s_{g, t - 1} \bar{y}_{g, t - 1}
+\end{aligned} \ \tag{5}
+</span></p>
+<ol start="6" type="1">
+<li>Rewrite using baseline weights to achieve single reference point:</li>
+</ol>
+<p><span class="math display">
+\begin{aligned}
+\Delta \bar{y}_t =
+  &amp; \sum_{g \in G \cap G'}
+  (s_{g, t} - s_{g, t - 1}) \bar{y}_{g, t - 1} + s_{g, t - 1} (\bar{y}_{g, t} - \bar{y}_{g, t - 1}) + (s_{g, t} - s_{g, t - 1})(\bar{y}_{g, t} - \bar{y}_{g, t - 1}) \\
+  &amp; + \sum_{g \in I} s_{g, t} \bar{y}_{g, t} - \sum_{g \in E} s_{g, t - 1} \bar{y}_{g, t - 1}
+\end{aligned} \ \tag{6}
+</span></p>
+<ol start="7" type="1">
+<li>Re-arrange the terms for entry/exit/share, within-group change, and interactions:</li>
+</ol>
+<p><span class="math display">
+\begin{aligned}
+\Delta \bar{y}_t =
+  &amp; \sum_{g \in G \cap G'}
+  (s_{g, t} - s_{g, t - 1}) \bar{y}_{g, t - 1}
+  +
+  \sum_{g \in I} s_{g, t} \bar{y}_{g, t}
+  -
+  \sum_{g \in E} s_{g, t - 1} \bar{y}_{g, t - 1} \\
+  &amp; + \sum_{g \in G \cap G'} s_{g, t - 1} (\bar{y}_{g, t} - \bar{y}_{g, t - 1}) \\
+  &amp; + \sum_{g \in G \cap G'} (s_{g, t} - s_{g, t - 1})(\bar{y}_{g, t} - \bar{y}_{g, t - 1})
+\end{aligned}
+  \ \tag{7}
+</span></p>
+</section>
+</section>
+</div>
+</div>
+</section>
+<section id="references" class="level1">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-beheim2012" class="csl-entry" role="listitem">
+Beheim, Bret A, and Ryan Baldini. 2012. <span>“Evolutionary <span>Decomposition</span> and the <span>Mechanisms</span> of <span>Cultural</span> <span>Change</span>.”</span> <em>Cliodynamics: The Journal of Quantitative History and Cultural Evolution</em> 3 (2): 217–33. <a href="https://doi.org/10.21237/C7CLIO3212123">https://doi.org/10.21237/C7CLIO3212123</a>.
+</div>
+<div id="ref-keskinturk2025" class="csl-entry" role="listitem">
+Keskintürk, Turgut, Pablo Bello, and Stephen Vaisey. 2025. <span>“The <span>Promises</span> and <span>Pitfalls</span> of <span>Using</span> <span>Panel</span> <span>Data</span> to <span>Understand</span> <span>Individual</span> <span>Belief</span> <span>Change</span>.”</span> <em>Political Psychology</em>, July. <a href="https://doi.org/10.1111/pops.70056">https://doi.org/10.1111/pops.70056</a>.
+</div>
+<div id="ref-sobchuk2025" class="csl-entry" role="listitem">
+Sobchuk, Oleg, and Bret Beheim. 2025. <span>“Does <span>Literature</span> <span>Evolve</span> <span>One</span> <span>Funeral</span> at a <span>Time</span>?”</span> <em>Proceedings of the Royal Society B: Biological Sciences</em> 292 (2040): 20242033. <a href="https://doi.org/10.1098/rspb.2024.2033">https://doi.org/10.1098/rspb.2024.2033</a>.
+</div>
+<div id="ref-vaisey2016" class="csl-entry" role="listitem">
+Vaisey, Stephen, and Omar Lizardo. 2016. <span>“Cultural <span>Fragmentation</span> or <span>Acquired</span> <span>Dispositions</span>? <span>A</span> <span>New</span> <span>Approach</span> to <span>Accounting</span> for <span>Patterns</span> of <span>Cultural</span> <span>Change</span>.”</span> <em>Socius: Sociological Research for a Dynamic World</em> 2: 237802311666972. <a href="https://doi.org/10.1177/2378023116669726">https://doi.org/10.1177/2378023116669726</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/tkeskinturk\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tkeskinturk.github.io/index.html</loc>
-    <lastmod>2026-03-08T19:15:58.723Z</lastmod>
+    <lastmod>2026-03-08T19:15:58.000Z</lastmod>
   </url>
   <url>
-    <loc>https://tkeskinturk.github.io/blog/preferences/index.html</loc>
-    <lastmod>2026-03-08T19:56:32.204Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/inequality/index.html</loc>
-    <lastmod>2026-03-08T19:39:15.056Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/habitus/index.html</loc>
-    <lastmod>2026-03-08T20:38:58.698Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/attactors/index.html</loc>
-    <lastmod>2026-03-08T20:57:52.266Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/culturalsoc/index.html</loc>
-    <lastmod>2026-03-08T21:15:17.958Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tkeskinturk.github.io/blog/index.html</loc>
-    <lastmod>2026-03-08T19:24:37.930Z</lastmod>
+    <loc>https://tkeskinturk.github.io/blog/publicopin/index.html</loc>
+    <lastmod>2026-03-16T15:37:44.340Z</lastmod>
   </url>
   <url>
     <loc>https://tkeskinturk.github.io/blog/orthodoxy/index.html</loc>
-    <lastmod>2026-03-08T20:16:18.438Z</lastmod>
+    <lastmod>2026-03-08T20:16:18.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/index.html</loc>
+    <lastmod>2026-03-08T19:24:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/culturalsoc/index.html</loc>
+    <lastmod>2026-03-08T21:15:17.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/attactors/index.html</loc>
+    <lastmod>2026-03-08T20:57:52.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/habitus/index.html</loc>
+    <lastmod>2026-03-08T20:38:58.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/inequality/index.html</loc>
+    <lastmod>2026-03-08T19:39:15.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tkeskinturk.github.io/blog/preferences/index.html</loc>
+    <lastmod>2026-03-08T19:56:32.000Z</lastmod>
   </url>
   <url>
     <loc>https://tkeskinturk.github.io/blog/resentment/index.html</loc>
-    <lastmod>2026-03-08T20:01:29.160Z</lastmod>
+    <lastmod>2026-03-08T20:01:29.000Z</lastmod>
   </url>
 </urlset>
