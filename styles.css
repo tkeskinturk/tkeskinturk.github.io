@@ -89,8 +89,53 @@ div.quarto-about-solana {
 .papers li a:hover {
   color: var(--bs-link-color);
 }
+#pronounce-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#pronounce {
+  margin-top: 0.6rem;
+}
+#pronounce button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #999;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+#pronounce button:hover {
+  color: var(--bs-link-color);
+}
+.navbar .dropdown-menu {
+  font-family: 'EB Garamond', serif;
+}
+.navbar .dropdown-item {
+  font-size: 1.1rem;
+}
+.papers li .repo {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+.papers li .repo a {
+  color: #ccc;
+  font-size: 0.85rem;
+  transition: color 0.15s ease;
+}
+.papers li .repo a:hover {
+  color: var(--bs-link-color);
+}
 .papers li .venue,
-.papers li .jmp {
+.papers li .jmp,
+.papers li .award {
   flex-basis: 100%;
   padding-left: 4rem;
   font-style: italic;
@@ -98,3 +143,8 @@ div.quarto-about-solana {
 }
 .papers li .venue { color: #888; }
 .papers li .jmp { color: var(--bs-link-color); }
+.papers li .award { color: #a89070; }
+.papers details {
+  margin-top: 0;
+  margin-bottom: 0;
+}
