@@ -1,148 +1,185 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;1,400&display=swap');
+
 :root {
-  --bs-link-color: #7b2d3b;
-  --bs-link-color-rgb: 123, 45, 59;
-  --bs-link-hover-color: #5e222d;
-}
-body {
-  font-family: 'EB Garamond', serif;
-  font-size: 1.1rem;
-}
-.navbar, .navbar-brand {
-  font-family: 'EB Garamond', serif;
-}
-.listing-date {
-  font-family: 'EB Garamond', serif;
+  --ink: #222;
+  --grey: #767676;
+  --hair: #ececec;
+  --bs-body-bg: #fff;
+  --bs-body-color: #222;
+  --bs-link-color: #222;
+  --bs-link-color-rgb: 34, 34, 34;
+  --bs-link-hover-color: #222;
+  --bs-heading-color: #222;
 }
 
-a, a:hover, a:focus {
-  text-decoration: none;
+body {
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
 }
-div.quarto-about-solana {
-  border-bottom: 1px solid #dee2e6;
-  padding-bottom: 1.5rem;
+
+a, a:hover, a:focus { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+/* ---------- grid row: label column + content column ---------- */
+
+.gr {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  column-gap: 2rem;
+  margin: 0 0 1.5rem;
+  padding: 0 !important;
 }
-.papers details {
-  border-bottom: 1px solid #e9e9e9;
+.gr > * { padding: 0; margin: 0; width: auto; max-width: none; }
+.label { color: var(--grey); }
+
+/* ---------- header ---------- */
+
+#top { margin-bottom: 1.75rem; }
+.top-name { font-weight: 500; }
+.top-role { display: flex; flex-wrap: wrap; gap: 0 1.5rem; color: var(--grey); }
+
+/* lowercase site chrome (not paper titles or journals) */
+#top, .label, .papers .c { text-transform: lowercase; }
+
+/* ---------- homepage ---------- */
+
+.home #quarto-content { max-width: 76rem; padding: 4.5rem 3rem 5rem; margin: 0; }
+
+.gc p { margin: 0 0 0.9em; max-width: 36rem; }
+.gc ul { list-style: none; margin: 0; padding: 0; }
+.about .gc a {
+  text-decoration: underline;
+  text-decoration-color: #ccc;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
 }
-.papers details:first-of-type {
-  border-top: 1px solid #e9e9e9;
-}
-.papers summary {
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.6rem 0;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.95rem;
-  color: #555;
-}
-.papers summary::-webkit-details-marker {
-  display: none;
-}
-.papers summary::after {
-  content: "›";
-  display: inline-block;
-  color: #999;
-  transition: transform 0.2s ease;
-}
-.papers details[open] summary::after {
-  transform: rotate(90deg);
-}
-.papers summary:hover {
-  color: var(--bs-link-color);
-}
-.papers ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0 0 0.8rem 0;
-}
-.papers ul li:first-child {
-  border-top: none;
-}
+
 .papers li {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr) 14rem 2.5rem;
+  column-gap: 1.25rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--hair);
+}
+.papers li:first-child { border-top: 0; padding-top: 0; }
+.papers .y, .papers .meta, .papers .j, .papers .c, .papers .note { color: var(--grey); }
+.papers .c { text-align: right; }
+.papers .meta, .papers .note { display: block; }
+
+/* ---------- writing list and posts ---------- */
+
+body:not(.home) #quarto-content { padding-top: 4.5rem; }
+body:not(.home) #title-block-header,
+body:not(.home) #quarto-content > main.content { margin-top: 0; padding-top: 0; }
+body:not(.home) main.content > :first-child,
+body:not(.home) h1.title { margin-top: 0; }
+
+.quarto-title h1.title { font-size: 1.5rem; font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; }
+.quarto-title-meta-heading { display: none; }
+.quarto-title-meta, .quarto-title-meta-contents { color: var(--grey); }
+#title-block-header { margin-bottom: 2rem; }
+
+body:not(.home) main.content { font-size: 16px; line-height: 1.65; }
+main.content h2, main.content h3, main.content h4 {
+  font-family: inherit;
+  font-weight: 500;
+  border: 0;
+  letter-spacing: -0.005em;
+}
+main.content h2 { font-size: 1.15rem; margin-top: 2.5rem; }
+main.content h3 { font-size: 1rem; margin-top: 2rem; }
+main.content p a, main.content li a {
+  text-decoration: underline;
+  text-decoration-color: #ccc;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+main.content p a:hover, main.content li a:hover { text-decoration-color: var(--ink); }
+blockquote { color: #555; border-left: 1px solid var(--hair); padding-left: 1rem; }
+.margin-sidebar, .column-margin, .csl-entry { color: #666; }
+
+/* listing rows: year | title */
+.quarto-listing-default .quarto-post {
+  display: flex !important;
+  flex-direction: row !important;
   align-items: baseline;
-  column-gap: 1rem;
-  row-gap: 0.1rem;
-  padding: 0.4rem 0;
-  border-top: 1px solid #f0f0f0;
-  line-height: 1.4;
+  gap: 1.25rem;
+  min-height: 0;
+  padding: 0.45rem 0;
+  margin: 0 !important;
+  border-top: 1px solid var(--hair);
+  border-bottom: 0;
 }
-.papers li .yr {
-  flex: 0 0 3rem;
-  text-align: right;
-  color: #999;
-  font-variant-numeric: tabular-nums;
+.quarto-listing-default .quarto-post:first-child { border-top: 0; }
+.quarto-listing-default .quarto-post .metadata { order: -1; flex: 0 0 3rem; padding: 0; margin: 0; }
+.quarto-listing-default .quarto-post .listing-date { font-family: inherit; font-size: 15px; color: var(--grey); }
+.quarto-listing-default .quarto-post .body { padding: 0; margin: 0; flex: 1 1 auto; min-width: 0; }
+.quarto-listing-default .quarto-post h3.listing-title { font-family: inherit; font-size: 15px; font-weight: 400; margin: 0; }
+.quarto-listing-default .quarto-post a { color: var(--ink); text-decoration: none; }
+.quarto-listing-default .quarto-post a:hover h3 { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.quarto-listing-default .quarto-post .thumbnail { display: none; }
+
+/* ---------- blog pages share the homepage frame ---------- */
+/* Quarto's named grid lines are redefined so post text starts where homepage
+   content starts (3rem gutter + 11rem label + 2rem gap). The header is moved
+   onto this grid by _header.html. */
+
+body:not(.home) #quarto-content {
+  align-content: start;
+  grid-template-rows: max-content max-content;
 }
-.papers li a {
-  flex: 1 1 0;
-  min-width: 0;
-  color: #222;
-  transition: color 0.15s ease;
+body:not(.home) #quarto-content > #top { grid-column: page-start / page-end; grid-row: 1; align-self: start; }
+body:not(.home) #quarto-content > main { grid-row: 2; }
+
+body:not(.home) #quarto-content.page-columns,
+body:not(.home) #quarto-content main.content.page-columns {
+  grid-template-columns:
+    [screen-start] 3rem
+    [screen-start-inset page-start page-start-inset] 11rem
+    [body-start-outset] 2rem
+    [body-start body-content-start] minmax(0, 42rem)
+    [body-content-end body-end] 2rem
+    [body-end-outset] 13rem
+    [page-end-inset page-end] minmax(3rem, 1fr)
+    [screen-end-inset screen-end];
 }
-.papers li a:hover {
-  color: var(--bs-link-color);
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  body:not(.home) #quarto-content.page-columns,
+  body:not(.home) #quarto-content main.content.page-columns {
+    grid-template-columns:
+      [screen-start] 3rem
+      [screen-start-inset page-start page-start-inset] 11rem
+      [body-start-outset] 2rem
+      [body-start body-content-start] minmax(0, 1fr)
+      [body-content-end body-end] 2rem
+      [body-end-outset] 11rem
+      [page-end-inset page-end] 2rem
+      [screen-end-inset screen-end];
+  }
 }
-#pronounce-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#pronounce {
-  margin-top: 0.6rem;
-}
-#pronounce button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-family: 'EB Garamond', serif;
-  font-size: 0.9rem;
-  font-style: italic;
-  color: #999;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  white-space: nowrap;
-  transition: color 0.15s ease;
-}
-#pronounce button:hover {
-  color: var(--bs-link-color);
-}
-.navbar .dropdown-menu {
-  font-family: 'EB Garamond', serif;
-}
-.navbar .dropdown-item {
-  font-size: 1.1rem;
-}
-.papers li .repo {
-  flex: 0 0 auto;
-  margin-left: auto;
-}
-.papers li .repo a {
-  color: #ccc;
-  font-size: 0.85rem;
-  transition: color 0.15s ease;
-}
-.papers li .repo a:hover {
-  color: var(--bs-link-color);
-}
-.papers li .venue,
-.papers li .award {
-  flex-basis: 100%;
-  padding-left: 4rem;
-  font-style: italic;
-  font-size: 0.95rem;
-}
-.papers li .venue { color: #888; }
-.papers li .award { color: #a89070; }
-.papers details {
-  margin-top: 0;
-  margin-bottom: 0;
+
+/* ---------- small screens: one column ---------- */
+
+@media (max-width: 991.98px) {
+  .home #quarto-content { padding: 2.5rem 1.25rem 3rem; }
+  body:not(.home) #quarto-content { padding-top: 2rem; }
+  .gr { grid-template-columns: minmax(0, 1fr); row-gap: 0.6rem; margin-bottom: 1.75rem; }
+  #top { row-gap: 0; }
+  .papers li { grid-template-columns: 2.75rem minmax(0, 1fr); row-gap: 0.1rem; }
+  .papers .j, .papers .c { grid-column: 2; text-align: left; }
+  .papers .j:empty, .papers .c:empty { display: none; }
+
+  body:not(.home) #quarto-content.page-columns,
+  body:not(.home) #quarto-content main.content.page-columns {
+    grid-template-columns:
+      [screen-start] 1.25rem
+      [screen-start-inset page-start page-start-inset body-start-outset body-start body-content-start] minmax(0, 1fr)
+      [body-content-end body-end body-end-outset page-end-inset page-end] 1.25rem
+      [screen-end-inset screen-end];
+  }
 }
