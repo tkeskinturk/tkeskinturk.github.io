@@ -115,8 +115,10 @@ blockquote { color: #555; border-left: 1px solid var(--hair); padding-left: 1rem
   border-bottom: 0;
 }
 .quarto-listing-default .quarto-post:first-child { border-top: 0; }
-.quarto-listing-default .quarto-post .metadata { order: -1; flex: 0 0 3rem; padding: 0; margin: 0; }
-.quarto-listing-default .quarto-post .listing-date { font-family: inherit; font-size: 15px; color: var(--grey); }
+.quarto-listing-default .quarto-post .metadata { order: -1; flex: 0 0 6rem; padding: 0; margin: 0; }
+.quarto-listing-default .quarto-post .metadata,
+.quarto-listing-default .quarto-post .metadata a,
+.quarto-listing-default .quarto-post .listing-date { font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 15px; color: var(--grey); }
 .quarto-listing-default .quarto-post .body { padding: 0; margin: 0; flex: 1 1 auto; min-width: 0; }
 .quarto-listing-default .quarto-post h3.listing-title { font-family: inherit; font-size: 15px; font-weight: 400; margin: 0; }
 .quarto-listing-default .quarto-post a { color: var(--ink); text-decoration: none; }
