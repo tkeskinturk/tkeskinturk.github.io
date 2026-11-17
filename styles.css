@@ -101,6 +101,7 @@ main.content p a, main.content li a {
 main.content p a:hover, main.content li a:hover { text-decoration-color: var(--ink); }
 blockquote { color: #555; border-left: 1px solid var(--hair); padding-left: 1rem; }
 .margin-sidebar, .column-margin, .csl-entry { color: #666; }
+#quarto-appendix.default { background-color: transparent; }
 
 /* listing rows: year | title */
 .quarto-listing-default .quarto-post {
@@ -128,7 +129,8 @@ blockquote { color: #555; border-left: 1px solid var(--hair); padding-left: 1rem
 /* ---------- blog pages share the homepage frame ---------- */
 /* Quarto's named grid lines are redefined so post text starts where homepage
    content starts (3rem gutter + 11rem label + 2rem gap). The header is moved
-   onto this grid by _header.html. */
+   onto this grid by _header.html. Sections holding figures become nested
+   grids, so they get the same columns. Text width: the body-start track. */
 
 body:not(.home) #quarto-content {
   align-content: start;
@@ -138,12 +140,13 @@ body:not(.home) #quarto-content > #top { grid-column: page-start / page-end; gri
 body:not(.home) #quarto-content > main { grid-row: 2; }
 
 body:not(.home) #quarto-content.page-columns,
-body:not(.home) #quarto-content main.content.page-columns {
+body:not(.home) #quarto-content main.content.page-columns,
+body:not(.home) main section.page-columns {
   grid-template-columns:
     [screen-start] 3rem
     [screen-start-inset page-start page-start-inset] 11rem
     [body-start-outset] 2rem
-    [body-start body-content-start] minmax(0, 42rem)
+    [body-start body-content-start] minmax(0, 48rem)
     [body-content-end body-end] 2rem
     [body-end-outset] 13rem
     [page-end-inset page-end] minmax(3rem, 1fr)
@@ -152,7 +155,8 @@ body:not(.home) #quarto-content main.content.page-columns {
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
   body:not(.home) #quarto-content.page-columns,
-  body:not(.home) #quarto-content main.content.page-columns {
+  body:not(.home) #quarto-content main.content.page-columns,
+  body:not(.home) main section.page-columns {
     grid-template-columns:
       [screen-start] 3rem
       [screen-start-inset page-start page-start-inset] 11rem
@@ -163,6 +167,11 @@ body:not(.home) #quarto-content main.content.page-columns {
       [page-end-inset page-end] 2rem
       [screen-end-inset screen-end];
   }
+}
+
+/* margin notes start after the gap column, not flush against the text */
+@media (min-width: 992px) {
+  body:not(.home) .column-margin { grid-column: body-end-outset / page-end !important; }
 }
 
 /* ---------- small screens: one column ---------- */
@@ -177,11 +186,15 @@ body:not(.home) #quarto-content main.content.page-columns {
   .papers .j:empty, .papers .c:empty { display: none; }
 
   body:not(.home) #quarto-content.page-columns,
-  body:not(.home) #quarto-content main.content.page-columns {
+  body:not(.home) #quarto-content main.content.page-columns,
+  body:not(.home) main section.page-columns {
     grid-template-columns:
       [screen-start] 1.25rem
       [screen-start-inset page-start page-start-inset body-start-outset body-start body-content-start] minmax(0, 1fr)
       [body-content-end body-end body-end-outset page-end-inset page-end] 1.25rem
       [screen-end-inset screen-end];
   }
+
+  /* margin notes drop inline below the text */
+  body:not(.home) .column-margin { grid-column: body-content-start / body-content-end !important; }
 }

@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-03-16">
 
 <title>Visualizing the Dynamics of Opinion Change – Turgut Keskintürk</title>
 <style>
@@ -211,7 +210,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">16 March 2026</p>
+      <p class="date">Mar 16, 2026</p>
     </div>
   </div>
   
@@ -223,12 +222,14 @@ window.Quarto = {
 </header>
 
 
-<p>We often present public opinion data as an <em>average trend</em>, typically using repeated estimates of a survey construct over time. This strategy is fine for overall description, but it obscures the fact that aggregate changes in public opinion can result from (1) people changing their minds, (2) the composition of the larger population changing, and (3) 1 and 2 happening simultaneously in ways that intensify a specific trend. Thus, a simple mean is generally silent on these distinctions <span class="citation" data-cites="keskinturk2025 vaisey2016">(<a href="#ref-keskinturk2025" role="doc-biblioref">Keskintürk, Bello, and Vaisey 2025</a>; <a href="#ref-vaisey2016" role="doc-biblioref">Vaisey and Lizardo 2016</a>)</span>.</p>
-<p>There is, however, a straightforward way to pull these apart. <span class="citation" data-cites="beheim2012">Beheim and Baldini (<a href="#ref-beheim2012" role="doc-biblioref">2012</a>)</span> and <span class="citation" data-cites="sobchuk2025">Sobchuk and Beheim (<a href="#ref-sobchuk2025" role="doc-biblioref">2025</a>)</span> provide a very intuitive strategy to decompose any aggregate opinion change into a <strong>composition effect</strong> (changing group shares), a <strong>within-group effect</strong> (groups actually changing), and an <strong>interaction</strong> between the two. While their approach is applied to a census of individuals and not really tailored to public opinion data, the underlying logic is general enough that we might think about it in the context of opinion change.</p>
-<p>I wrote a very simple R package—<a href="https://tkeskinturk.github.io/opin"><code>opin</code></a> to implement this. You can install it from GitHub:</p>
+<p>We often present public opinion data as an average trend, typically using repeated estimates of a survey construct over time. This strategy is fine for overall description, but it obscures the fact that aggregate changes in public opinion can result from (1) people changing their minds, (2) the composition of the larger population changing, and (3) 1 and 2 happening simultaneously in ways that intensify a specific trend. Thus, a simple mean is generally silent on these distinctions <span class="citation" data-cites="keskinturk2025 vaisey2016">(<a href="#ref-keskinturk2025" role="doc-biblioref">Keskintürk, Bello, and Vaisey 2025</a>; <a href="#ref-vaisey2016" role="doc-biblioref">Vaisey and Lizardo 2016</a>)</span>.</p>
+<p>There is, however, a very straightforward way to pull these apart. <span class="citation" data-cites="beheim2012">Beheim and Baldini (<a href="#ref-beheim2012" role="doc-biblioref">2012</a>)</span> and <span class="citation" data-cites="sobchuk2025">Sobchuk and Beheim (<a href="#ref-sobchuk2025" role="doc-biblioref">2025</a>)</span> provide a very intuitive strategy to decompose any aggregate opinion change into a <strong>composition effect</strong> (changing group shares), a <strong>within-group effect</strong> (groups actually changing), and an <strong>interaction</strong> between the two. While their approach is applied to a census of individuals and not really tailored to public opinion data, the underlying logic is general enough that we might think about it in the context of opinion change.</p>
+<p>I wrote a very simple R package, <a href="https://tkeskinturk.github.io/opin"><code>opin</code></a>, to implement this. You can install it from GitHub:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("devtools")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"tkeskinturk/opin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The visualization strategy follows the “decomposition plot” from <span class="citation" data-cites="beheim2012">Beheim and Baldini (<a href="#ref-beheim2012" role="doc-biblioref">2012</a>)</span>: rather than placing decomposed effects on an abstract axis, it anchors them on the empirical trajectory of the outcome, so that we can immediately see <em>what</em> is driving the trend at each point in time.</p>
+<p>The visualization strategy follows the “decomposition plot” from <span class="citation" data-cites="beheim2012">Beheim and Baldini (<a href="#ref-beheim2012" role="doc-biblioref">2012</a>)</span>: rather than placing decomposed effects on an abstract axis, it anchors them on the empirical trajectory of the outcome, so that we can immediately see what is driving the trend at each point in time.</p>
+<p><br>
+</p>
 <section id="a-simple-illustration" class="level2">
 <h2 class="anchored" data-anchor-id="a-simple-illustration">A Simple Illustration</h2>
 <p>Let me illustrate why I think this strategy provides a better representation of public opinion change.</p>
@@ -302,7 +303,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>This is a striking decline, but this average trend does not tell us whether the decline comes from people changing their minds or from the population itself changing over time.</p>
+<p>This is a striking decline, but this mean trend does not tell us whether the decline comes from people changing their minds or from the population itself changing over time.</p>
 <p>Here is how <code>opin</code> handles this issue. Let’s load it first:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## install `opin` if necessary</span></span>
